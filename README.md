@@ -3,7 +3,16 @@
 A lightweight Vue library that automatically adds copy buttons to code blocks. Customizable options for button position, styling, text and highlighting.
 
 <p align="center">
-  <img src="https://github.com/rarar89/copy-code-react/blob/main/images/copy-code-block.gif?raw=true" alt="Copy Code Demo" style="max-width: 300px; width: 100%;" />
+  <img src="https://github.com/rarar89/copy-code-vue/blob/main/public/copy-code-block.gif?raw=true" alt="Copy Code Demo" style="max-width:300px" />
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/copy-code-vue">
+    <img src="https://img.shields.io/npm/v/copy-code-vue.svg" alt="npmjs" />
+  </a> | 
+  <a href="https://github.com/rarar89/copy-code-react">
+    <img src="https://img.shields.io/badge/React-library-blue" alt="React version" />
+  </a>
 </p>
 
 ## Installation
