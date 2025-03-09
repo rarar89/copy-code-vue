@@ -9,7 +9,7 @@ A lightweight Vue library that automatically adds copy buttons to code blocks. C
 <p align="center">
   <a href="https://www.npmjs.com/package/copy-code-vue">
     <img src="https://img.shields.io/npm/v/copy-code-vue.svg" alt="npmjs" />
-  </a> | 
+  </a>
   <a href="https://github.com/rarar89/copy-code-react">
     <img src="https://img.shields.io/badge/React-library-blue" alt="React version" />
   </a>
