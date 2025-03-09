@@ -4,11 +4,11 @@ import { useCopyCode } from '../composables/useCopyCode';
 import type { CopyCodeOptions } from '../types/CopyCodeOptions';
 
 interface Props extends CopyCodeOptions {
-  class?: string;
+  customClass?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  class: '',
+  customClass: '',
   selector: 'pre code',
   position: 'top-right',
   copyMessage: 'Copied',
@@ -34,7 +34,7 @@ useCopyCode({
 </script>
 
 <template>
-  <div ref="containerRef" :class="class">
+  <div ref="containerRef" :class="customClass">
     <slot></slot>
   </div>
 </template> 

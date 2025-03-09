@@ -1,5 +1,6 @@
-import { onMounted, onUnmounted, Ref, ref } from 'vue';
-import { CopyCodeOptions } from '../types/CopyCodeOptions';
+import { onMounted, onUnmounted, ref } from 'vue';
+import type { Ref } from 'vue';
+import type { CopyCodeOptions } from '../types/CopyCodeOptions';
 import { CopyIcon } from '../icons/CopyIcon';
 import { CheckIcon } from '../icons/CheckIcon';
 
@@ -9,7 +10,10 @@ const positionClasses = {
   'top-left': 'copy-code-vue-position-tl',
   'bottom-right': 'copy-code-vue-position-br',
   'bottom-left': 'copy-code-vue-position-bl',
-};
+} as const;
+
+// Define a type for valid positions
+type CopyCodePosition = keyof typeof positionClasses;
 
 export const useCopyCode = (
   options: CopyCodeOptions,
@@ -142,7 +146,7 @@ export const useCopyCode = (
 
       // Create container for the button
       const buttonContainer = document.createElement('div');
-      buttonContainer.className = `${containerClassName} ${positionClasses[position]} copy-code-vue-button-container-element`;
+      buttonContainer.className = `${containerClassName} ${positionClasses[position as CopyCodePosition]} copy-code-vue-button-container-element`;
 
       // Create the copy button
       const copyButton = document.createElement('button');
