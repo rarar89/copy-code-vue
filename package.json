@@ -1,0 +1,47 @@
+{
+  "name": "copy-code-vue",
+  "version": "0.5.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/copy-code-vue.umd.js",
+  "module": "./dist/copy-code-vue.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/copy-code-vue.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/copy-code-vue.umd.js"
+      }
+    }
+  },
+  "keywords": [
+    "vue",
+    "copy",
+    "code",
+    "clipboard",
+    "syntax",
+    "highlight"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^3.9.1",
+    "vue-tsc": "^2.2.4"
+  }
+}
