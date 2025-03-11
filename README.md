@@ -53,6 +53,16 @@ function hello() {
 }
         </code>
       </pre>
+      <div>
+        <h4>
+          Example code block 2:
+        </h4>
+        <pre>
+          <code>
+const a = b + c;
+          </code>
+        </pre>
+      </div>
     </div>
   </CopyCode>
 </template>
