@@ -53,7 +53,6 @@ export const useCopyCode = (
         
         .copy-code-vue-button-container {
           position: absolute;
-          z-index: 100;
           pointer-events: auto;
         }
         
