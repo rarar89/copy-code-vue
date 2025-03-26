@@ -17,7 +17,9 @@ type CopyCodePosition = keyof typeof positionClasses;
 
 export const useCopyCode = (
   options: CopyCodeOptions,
-  containerRef?: Ref<HTMLElement | null>
+  containerRef?: Ref<HTMLElement | null>,
+  copyIconRef?: Ref<HTMLElement | null>,
+  successIconRef?: Ref<HTMLElement | null>
 ) => {
   const {
     selector = 'pre code',
@@ -151,7 +153,13 @@ export const useCopyCode = (
       const copyButton = document.createElement('button');
       copyButton.className = `${buttonClassName} copy-code-vue-button-element`;
       copyButton.setAttribute('aria-label', 'Copy code');
-      copyButton.innerHTML = CopyIcon;
+
+      // Set the initial button content
+      if (copyIconRef?.value) {
+        copyButton.innerHTML = copyIconRef.value.innerHTML;
+      } else {
+        copyButton.innerHTML = CopyIcon;
+      }
 
       // Click handler to copy code
       const clickHandler = (e: Event) => {
@@ -169,22 +177,36 @@ export const useCopyCode = (
             }, 400);
           }
 
-          // Change button to show success with green check icon
-          copyButton.innerHTML = `<div class="${successClassName} copy-code-vue-flex copy-code-vue-fade-in">
+          if (successIconRef?.value) {
+            copyButton.innerHTML = `<div class="${successClassName} copy-code-vue-flex copy-code-vue-fade-in">
+              ${copyMessage ? `<div>${copyMessage}</div>` : ''}
+              ${successIconRef.value.innerHTML}
+            </div>`;
+          } else {
+            copyButton.innerHTML = `<div class="${successClassName} copy-code-vue-flex copy-code-vue-fade-in">
               ${copyMessage ? `<div>${copyMessage}</div>` : ''}
               ${CheckIcon}
             </div>`;
+          }
 
           // Reset button after the timeout
           setTimeout(() => {
-            copyButton.innerHTML = CopyIcon;
+            if (copyIconRef?.value) {
+              copyButton.innerHTML = copyIconRef.value.innerHTML;
+            } else {
+              copyButton.innerHTML = CopyIcon;
+            }
           }, copyMessageTimeout);
         }).catch(error => {
           console.error('Failed to copy code:', error);
           copyButton.innerHTML = `<div class="copy-code-vue-fade-in" style="color: #ef4444;">Failed to copy!</div>`;
           
           setTimeout(() => {
-            copyButton.innerHTML = CopyIcon;
+            if (copyIconRef?.value) {
+              copyButton.innerHTML = copyIconRef.value.innerHTML;
+            } else {
+              copyButton.innerHTML = CopyIcon;
+            }
           }, copyMessageTimeout);
         });
       };

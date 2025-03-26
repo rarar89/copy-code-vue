@@ -100,6 +100,35 @@ import { CopyCode } from 'copy-code-vue';
 </template>
 ```
 
+### Using Custom Icons
+
+You can provide your own custom icons for both the copy button and success state:
+
+```vue
+<template>
+  <CopyCode 
+    position="top-right" 
+    copyMessage="Copied with custom icon!" 
+  >
+    <template #copy-icon>
+      <CustomCopyIcon />
+    </template>
+    <template #success-icon>
+      <CustomSuccessIcon />
+    </template>
+    
+    <!-- Your code blocks here -->
+    <pre><code>Your code here</code></pre>
+  </CopyCode>
+</template>
+
+<script setup>
+import { CopyCode } from 'copy-code-vue';
+import CustomCopyIcon from './components/icons/CustomCopyIcon.vue';
+import CustomSuccessIcon from './components/icons/CustomSuccessIcon.vue';
+</script>
+```
+
 ### Method 2: Using the Composable Directly
 
 For more control, you can use the useCopyCode composable directly in your components. This allows you to target specific sections of your app.

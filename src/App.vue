@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { CopyCode } from './index';
+import { h } from 'vue';
+import CustomCopyIcon from './components/icons/CustomCopyIcon.vue';
+import CustomSuccessIcon from './components/icons/CustomSuccessIcon.vue';
 </script>
 
 <template>
@@ -104,6 +107,43 @@ const colors = {
 };
 
 export default colors;</code>
+          </pre>
+        </div>
+      </CopyCode>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2 style="color: #a78bfa;">Custom Icons with Slots</h2>
+      <p>Use your own custom icon components with slots for better Vue patterns.</p>
+      
+      <CopyCode 
+        :useCustomIcons="true"
+        copyMessage="Copied with custom icon!"
+      >
+        <template #copy-icon>
+          <CustomCopyIcon />
+        </template>
+        <template #success-icon>
+          <CustomSuccessIcon />
+        </template>
+        
+        <div style="background: #2d2d2d; padding: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">
+          <pre class="code-block">
+            <code>// This code block uses custom icon components with slots
+import CustomCopyIcon from './components/icons/CustomCopyIcon.vue';
+import CustomSuccessIcon from './components/icons/CustomSuccessIcon.vue';
+
+// Use the components with slots
+&lt;CopyCode :useCustomIcons="true"&gt;
+  &lt;template #copy-icon&gt;
+    &lt;CustomCopyIcon /&gt;
+  &lt;/template&gt;
+  &lt;template #success-icon&gt;
+    &lt;CustomSuccessIcon /&gt;
+  &lt;/template&gt;
+  
+  &lt;pre&gt;&lt;code&gt;Your code here&lt;/code&gt;&lt;/pre&gt;
+&lt;/CopyCode&gt;</code>
           </pre>
         </div>
       </CopyCode>
